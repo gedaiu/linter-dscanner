@@ -4,7 +4,7 @@
   "main": "./lib/init",
   "version": "0.0.1",
   "description": "Lint D code using dscanner",
-  "repository": "https://github.com/atom/dscanner",
+  "repository": "https://github.com/gedaiu/linter-dscanner",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
