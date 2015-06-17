@@ -2,13 +2,12 @@
   "name": "linter-dscanner",
   "linter-package": true,
   "main": "./lib/init",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Lint D code using dscanner",
   "repository": "https://github.com/gedaiu/linter-dscanner",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
