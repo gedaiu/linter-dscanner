@@ -11,10 +11,3 @@ And you should already have the [dscanner](https://github.com/Hackerpilot/Dscann
 ```
 $ apm install linter-dscanner
 ```
-
-## Settings
-You can configure linter-php by editing ~/.atom/config.cson (choose Open Your Config in Atom menu):
-```
-'linter-dscanner':
-  'dscannerExecutablePath': null # dscanner path
-```

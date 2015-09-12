@@ -2,17 +2,21 @@
 
 module.exports =
   config:
-    executablePath:
+    dscannerPath:
       type: 'string'
-      default: ''
+      default: '';
       title: 'Dscanner Executable Path'
 
+  defaultDscanner: ''
+
   activate: ->
-    console.log("activate linter-dscanner");
+    @defaultDscanner = atom.packages.loadedPackages['linter-dscanner'].path + "/bin/dscanner-" + process.platform;
+    console.log("default dscanner path:", @defaultDscanner)
+
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.config.observe 'linter-dscanner.executablePath',
-      (executablePath) =>
-        @executablePath = executablePath
+    @subscriptions.add atom.config.observe 'linter-dscanner.dscannerPath',
+      (dscannerPath) => @dscannerPath = if dscannerPath == '' then @defaultDscanner else dscannerPath
+
   deactivate: ->
     @subscriptions.dispose()
   provideLinter: () ->
@@ -29,7 +33,7 @@ module.exports =
 
         filePath = textEditor.getPath()
         console.log('lint ', filePath);
-        return helpers.exec(@executablePath, ['--styleCheck', filePath], {stream: 'stdout'})
+        return helpers.exec(@dscannerPath, ['--styleCheck', filePath], {stream: 'stdout'})
           .then (contents) ->
             list = helpers.parse(contents, regex)
 
