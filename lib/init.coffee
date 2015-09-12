@@ -11,6 +11,7 @@ module.exports =
 
   activate: ->
     @defaultDscanner = atom.packages.loadedPackages['linter-dscanner'].path + "/bin/dscanner-" + process.platform;
+    @defaultDscanner = @defaultDscanner + ".exe" if process.platform == "win32"
     console.log("default dscanner path:", @defaultDscanner)
 
     @subscriptions = new CompositeDisposable
