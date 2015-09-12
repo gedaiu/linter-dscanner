@@ -1,6 +1,5 @@
 {
   "name": "linter-dscanner",
-  "linter-package": true,
   "main": "./lib/init",
   "version": "0.1.0",
   "description": "Lint D code using dscanner",
@@ -9,5 +8,14 @@
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
   },
-  "dependencies": {}
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "dependencies": {
+    "atom-linter": "^3.2.0"
+  }
 }
