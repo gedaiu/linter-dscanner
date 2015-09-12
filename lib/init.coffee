@@ -25,7 +25,7 @@ module.exports =
     provider =
       grammarScopes: ['source.d']
       scope: 'file' # or 'project'
-      lintOnFly: false # must be false for scope: 'project'
+      lintOnFly: true # must be false for scope: 'project'
       lint: (textEditor) =>
         regex = '(.*)'+
                '\\((?<line>[0-9]*):(?<col>[0-9]*)\\)'+
